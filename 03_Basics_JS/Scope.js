@@ -59,7 +59,6 @@ function addone(num){
 
 
 
-
 // console.log(addTwo(5)); it gives error,ReferenceError: Cannot access 'addTwo' before initialization
 
 const addTwo = function(num){  // it is also called expression
