@@ -32,8 +32,6 @@ val1 = null ?? 10 ?? 15; //val1=10
 console.log(val1);
 
 
-
-
 //ternary operator
 
 // condition ? true:false
