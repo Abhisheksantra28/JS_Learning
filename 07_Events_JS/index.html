@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+  </head>
+  <body style="background-color: #414141; color: aliceblue">
+    <div>
+      <ul id="images">
+        <li id="owl">Owl</li>
+        <li id="photoshop">Photoshop</li>
+        <li id="japan">Japan</li>
+        <li>
+          <a
+            style="color: aliceblue"
+            href="https://google.om"
+            id="google"
+            target="_blank"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // document.getElementById("owl").onclick = () => {
+    //   alert("Owl clicked");
+    // };
+
+    //attachEvent() => runs on internet explorar
+    //jQuery = on
+
+    // **************Events Listioners*********************
+    // document.getElementById("owl").addEventListener("click",()=>{},false ) => here false parameter is default parameter so it is not necessary to write
+    /*
+    document.getElementById("owl").addEventListener("click", () => {
+      alert("owl clicked again");
+    });
+    */
+
+    // ************Event object ************
+
+    /*
+    document.getElementById("owl").addEventListener(
+      "click",
+      (e) => {
+        console.log(e);
+      },
+      false
+    );
+
+    */
+    //types , timestamp , defaultPrevented
+    //target,toElement,srcElement, currentTarget
+    //clientX, clientY,screeenX , screenY
+    //altKey,ctrlKey, shiftKey, keyCode
+
+    // lets learn about Event propagation
+
+    // 1.Event Bubbling(default false) & 2.Event Capturing
+
+    // false => bubbling mode child to parent
+
+    /*
+    document.querySelector("#images").addEventListener(
+      "click",
+      (e) => {
+        console.log("clicked inside the ul");
+      },
+      true // capturing mode => top to bottom (parent to child)
+    );
+
+   
+    document.querySelector("#owl").addEventListener(
+      "click",
+      (e) => {
+        console.log("owl clicked");
+      },
+      true // capturing mode top to bottom (parent to child)
+    );
+    */
+
+    /*
+    document.querySelector("#images").addEventListener(
+      "click",
+      (e) => {
+        console.log("clicked inside the ul");
+      },
+      false // bubbling mode => top to bottom (parent to child)
+    );
+
+    document.querySelector("#owl").addEventListener(
+      "click",
+      (e) => {
+        console.log("owl clicked");
+        e.stopPropagation(); // event not propagate
+      },
+      false // bubbling mode top to bottom (parent to child)
+    );
+
+    // ************Prevent default***************
+    document.querySelector("#google").addEventListener("click", (e) => {
+      console.log("google clicked");
+      e.preventDefault(); // prevent the default behaviour
+      e.stopPropagation();
+    });
+    */
+
+    document.querySelector("#images").addEventListener(
+      "click",
+      function (e) {
+        console.log(e.target);
+        console.log(e.target.parentNode);
+        let removeIt = e.target;
+        removeIt.remove();
+      },
+      false
+    );
+  </script>
+</html>
