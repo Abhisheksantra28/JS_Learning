@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #212121"></body>
+
+  <script>
+    const Url = "https://api.github.com/users/abhisheksantra28";
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", Url);
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+      if (xhr.readyState === 4) {
+        // console.log(xhr.responseText); //also works for array coz arroe function does not have this context in arraow func this is refer to the window object
+
+        // console.log(this.responseText);
+
+        const data  = JSON.parse(this.responseText)
+        console.log(typeof data);
+        console.log( data.name);
+        // console.log(data.);
+      }
+    };
+    xhr.send();
+  </script>
+</html>
